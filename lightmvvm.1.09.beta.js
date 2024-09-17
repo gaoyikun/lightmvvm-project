@@ -1,5 +1,5 @@
 /**
- * Version 1.09 beta, 2024.09.14 updated.
+ * Version 1.09 beta, 2024.09.17 updated.
  */
 class LightMvvm {
     constructor(options) {
