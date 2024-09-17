@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        h1,
+        h2 {
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        span {
+            padding: 1rem;
+        }
+    </style>
+    <title>Local Render!</title>
+</head>
+
+<body>
+    <header></header>
+    <main class="container">
+        <div id="app" class="col-6">
+            <div id="node1">
+                <p class="child1">
+                    <span>aaa</span>
+                </p>
+                <p class="child2">bbb</p>
+            </div>
+            <div id="node2">
+                <p class="child1">aaaa</p>
+                <p class="child2">bbbb</p>
+            </div>
+            <button onclick="Replace()">Replace</button>
+        </div>
+    </main>
+    <script src="../LightMvvm.lib/handlebars.min-v4.7.8.js"></script>
+    <script src="../LightMvvm.lib/lightmvvm.1.08.3.beta.js"></script>
+    <script>
+        const node1 = document.getElementById('node1');
+        const children1 = node1.querySelectorAll('p');
+        const node2 = document.getElementById('node2');
+        const children2 = node2.querySelectorAll('p');
+        const Replace = () => {
+            children1.forEach((child, index) => {
+                if (!child.isEqualNode(children2[index])) {
+                    child.replaceWith(children2[index].cloneNode(true));
+                }
+            })
+        };
+    </script>
+</body>
+
+</html>
